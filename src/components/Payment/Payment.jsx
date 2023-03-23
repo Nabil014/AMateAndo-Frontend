@@ -11,7 +11,7 @@ export function Payment () {
   const [showModal, setShowModal] = useState(false)
   const [infoShipping, setInfoShipping] = useState([])
   const [shipping, setShipping] = useState(null);
-  const [error, setError] = useState(1)
+  const [error, setError] = useState(null)
   const cartContext = useContext(CartContext);
   const { user } = useAuth()
   const { cart } = cartContext;
@@ -119,7 +119,7 @@ export function Payment () {
             </div>
             <div className="flex justify-between m-4 mt-0">
               <h1>Envío</h1>
-              <h1 className="mr-4">$ {shipping},00</h1>
+              <h1 className="mr-4">$ {shipping === null ? 0 : shipping},00</h1>
             </div>
           </div>
           <hr className="ml-4  justify-center items-center w-[87%]" />
