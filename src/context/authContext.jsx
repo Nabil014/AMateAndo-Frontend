@@ -20,7 +20,10 @@ export function AuthProvider ({ children }) {
 
   const singup = async (email, password) => await createUserWithEmailAndPassword(auth, email, password)
   const login = async (email, password) => await signInWithEmailAndPassword(auth, email, password)
-  const logout = async (email, password) => await signOut(auth)
+  const logout = async (email, password) => {
+    localStorage.removeItem('shipping')
+    return await signOut(auth)
+  }
 
   const loginWithGoogle = () => {
     const googleProvider = new GoogleAuthProvider()

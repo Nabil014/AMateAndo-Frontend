@@ -81,8 +81,8 @@ export function Cart ({ visible, onClose }) {
                     </p>
                   </div>
                   <span className="font-semibold lg:text-lg">$ {e.unit_price},00</span>
-                  <button onClick={() => deleteItem(e.title)}>
-                    <RiDeleteBinLine className="text-xl hover:text-red-500 transition-colors" />
+                  <button className="rounded-lg p-1 hover:bg-red-500 transition-all text-red-500 hover:text-white" onClick={() => deleteItem(e.title)}>
+                    <RiDeleteBinLine title="Quitar item" className="text-xl" />
                   </button>
                 </div>
                 <hr className="m-2" />
@@ -101,16 +101,16 @@ export function Cart ({ visible, onClose }) {
             className="flex flex-col xl:flex-row lg:flex-row lg:text-sm lg:gap-2 lg:p-2 lg:font-semibold justify-center items-center xl:gap-2 border-solid border-2 md:text-base text-xs xl:text-lg xl:font-semibold border-[#06283D] rounded-lg xl:p-1 p-1 hover:bg-[#06283D] hover:text-white transition-colors "
             onClick={() => deleteCart()}
           >
-            <RiDeleteBin5Fill /> Vaciar carrito
+            Vaciar carrito
           </button>
           <div className="flex">
             <h1 className="mr-8 text-base lg:text-xl">Total a pagar: </h1>
             <span className="text-lg lg:text-xl">$ {totalCart},00</span>
           </div>
         </div>
-        <div className="flex justify-end mt-2" >
+        <div className="flex justify-end mt-2 mb-4" >
           <Link to={'/checkout'}>
-            <button disabled={cart.length === 0 ? true : false} className={cart.length === 0 ? "cursor-not-allowed bg-[#F49D1A]  transition-all rounded-lg mr-10 p-1.5 text-[#06283D] font-semibold" : "bg-[#F49D1A] hover:bg-orange-400 hover:shadow-sm hover:border-solid hover:border-orange-500 transition-all rounded-lg mr-10 p-1.5 text-[#06283D] font-semibold"}>Iniciar pago</button>
+            <button disabled={cart.length === 0 ? true : false} className={cart.length === 0 ? "cursor-not-allowed bg-[#F49D1A]  transition-all rounded-lg mr-10 p-1.5 text-[#06283D] font-semibold" : "bg-[#FFA559] hover:bg-[#ff6200c2] hover:text-[#454545] px-3 hover:shadow-lg hover:border-solid hover:border-orange-500 transition-all rounded-lg mr-10 p-1.5 text-[#06283D] font-semibold"}>Iniciar pago</button>
           </Link>
         </div>
       </div>

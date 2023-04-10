@@ -1,11 +1,14 @@
 import React from 'react'
+import { useAuth } from "../../context/authContext";
+
 import { RiCloseFill } from 'react-icons/ri';
 
-export default function Modal ({ closeModal, visible, inputs, setInputs }) {
+export function ModalShipping ({ closeModal, visible, inputs, setInputs }) {
+  const { user } = useAuth()
+
 
   const handleChange = ({ target: { name, value } }) => {
-    setInputs({ ...inputs, [name]: value })
-
+    setInputs({ ...inputs, [name]: value, email: user?.email, id: user?.uid })
   }
   const handleSave = () => {
     localStorage.setItem('shipping', JSON.stringify([inputs]))

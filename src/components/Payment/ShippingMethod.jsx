@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ShippingMethod = ({ setShipping }) => {
+export const ShippingMethod = ({ handleShipping }) => {
 
   const handleShippingMethodChange = (event) => {
-    setShipping(event.target.value);
+    handleShipping(event.target.value)
   };
 
   return (
@@ -12,7 +12,7 @@ const ShippingMethod = ({ setShipping }) => {
         <input
           type="radio"
           name="shippingMethod"
-          value="0"
+          value={0}
           onChange={handleShippingMethodChange}
         />
         <p className='font-semibold'>$0.00</p> Retiro en el local
@@ -22,7 +22,7 @@ const ShippingMethod = ({ setShipping }) => {
         <input
           type="radio"
           name="shippingMethod"
-          value="600"
+          value={600}
           onChange={handleShippingMethodChange}
         />
         <p className='font-semibold'>$600</p> Entrega en sucursal de correo
@@ -32,7 +32,7 @@ const ShippingMethod = ({ setShipping }) => {
         <input
           type="radio"
           name="shippingMethod"
-          value="1400"
+          value={1400}
           onChange={handleShippingMethodChange}
         />
         <p className='font-semibold'>$1.400</p> Entrega en domicilio
@@ -40,5 +40,3 @@ const ShippingMethod = ({ setShipping }) => {
     </div>
   );
 };
-
-export default ShippingMethod;
